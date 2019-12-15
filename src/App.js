@@ -3,60 +3,63 @@ import React, { Component } from 'react';
 import Table from './components/Table/Table';
 import Button from './components/Button/Button';
 
-const currency = ['$', '€', '£'];
-
-function countDelta(p, c) {
-    return c - p
-}
-
 export default class App extends Component {
     state = {
-        loading: true,
-        previous: 0,
-        current: 0,
+        isLoading: false,
+        previous: {},
+        current: {},
     }
 
-    // async componentDidMount() {
-    //     const url = 'https://www.coindesk.com/price/bitcoin/';
-    //     const response = await fetch(url);
-    //     const data = await response.json();
-    //     console.log(data);
-    //
-    //     this.setState({
-    //         current: data
-    //     })
-    // }
-
-    async refresh() {
-        // window.location.reload(false)
-        //
-        // this.setState({
-        //     loading: false,
-        //     previous: this.state.current
-        // })
-
-        const url = 'https://www.coindesk.com/price/bitcoin/';
+    componentDidMount = async () => {
+        const url = 'https://api.coindesk.com/v1/bpi/currentprice.json';
         const response = await fetch(url);
         const data = await response.json();
-        console.log(data);
+
+        let current = {
+            USD: data.bpi.USD.rate_float,
+            EUR: data.bpi.EUR.rate_float,
+            GBP: data.bpi.GBP.rate_float,
+        }
+
+        this.setState({
+            previous: current,
+            current: current
+        })
+    }
+
+    refreshRates = async () => {
+        this.setState({
+            isLoading: true,
+            previous: this.state.current,
+        })
+
+        const url = 'https://api.coindesk.com/v1/bpi/currentprice.json';
+        const response = await fetch(url);
+        const data = await response.json();
+
+        let current = {
+            USD: data.bpi.USD.rate_float,
+            EUR: data.bpi.EUR.rate_float,
+            GBP: data.bpi.GBP.rate_float,
+        }
+
+        this.setState({
+            isLoading: false,
+            current: current
+        })
     }
 
     render() {
-        const { loading, previous, current } = this.state;
-        const delta = countDelta(previous, current);
+        let { isLoading, previous, current } = this.state;
 
         return (
             <div>
-                {
-                    // loading
-                    // ? <div>loading...</div>
-                    <Table
-                        tableItems={currency}
-                        currentPrice={current}
-                        previousPrice={previous}
-                        changed={delta} />
-                }
-                <Button refreshed={this.refresh} />
+                {isLoading
+                    ? <div>loading...</div>
+                    : <Table
+                        current={current}
+                        previous={previous} />}
+                <Button refreshed={this.refreshRates} />
             </div>
         )
     }
