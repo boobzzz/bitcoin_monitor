@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@bit/lodash.lodash.merge": "^4.17.11",
     "@bit/ramda.ramda.keys": "^0.26.1",
+    "@bit/ramda.ramda.merge-deep-with": "^0.26.1",
+    "@bit/ramda.ramda.merge-with": "^0.26.1",
     "@bit/ramda.ramda.values": "^0.26.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",

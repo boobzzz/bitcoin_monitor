@@ -5,7 +5,6 @@ function countDelta(p, c) {
 }
 
 const Table = (props) => {
-
     return (
         <table>
             <tr id="trow-0">

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-
 import Table from './components/Table/Table';
 import Button from './components/Button/Button';
+import fetchJSON from './lib/api.js';
+
+const URL = "https://api.coindesk.com/v1/bpi/currentprice.json";
 
 export default class App extends Component {
     state = {
@@ -11,14 +13,12 @@ export default class App extends Component {
     }
 
     componentDidMount = async () => {
-        const url = 'https://api.coindesk.com/v1/bpi/currentprice.json';
-        const response = await fetch(url);
-        const data = await response.json();
+        let data = await fetchJSON(URL)
 
         let current = {
-            USD: data.bpi.USD.rate_float,
-            EUR: data.bpi.EUR.rate_float,
-            GBP: data.bpi.GBP.rate_float,
+            USD: data.body.bpi.USD.rate_float,
+            EUR: data.body.bpi.EUR.rate_float,
+            GBP: data.body.bpi.GBP.rate_float,
         }
 
         this.setState({
@@ -33,14 +33,12 @@ export default class App extends Component {
             previous: this.state.current,
         })
 
-        const url = 'https://api.coindesk.com/v1/bpi/currentprice.json';
-        const response = await fetch(url);
-        const data = await response.json();
+        let data = await fetchJSON(URL)
 
         let current = {
-            USD: data.bpi.USD.rate_float,
-            EUR: data.bpi.EUR.rate_float,
-            GBP: data.bpi.GBP.rate_float,
+            USD: data.body.bpi.USD.rate_float,
+            EUR: data.body.bpi.EUR.rate_float,
+            GBP: data.body.bpi.GBP.rate_float,
         }
 
         this.setState({
