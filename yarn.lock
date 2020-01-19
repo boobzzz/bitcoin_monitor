@@ -1603,11 +1603,6 @@
   dependencies:
     "@bit/ramda.ramda.internal._has" "0.26.1"
 
-"@bit/ramda.ramda.internal._is-object@0.26.1":
-  version "0.26.1"
-  resolved "https://node.bit.dev/ramda.ramda.internal._is-object/-/ramda.ramda.internal._is-object-0.26.1.tgz#1e061694805dd631c714d3dbef195984b0ceb4f0"
-  integrity sha1-HgYWlIBd1jHHFNPb7xlZhLDOtPA=
-
 "@bit/ramda.ramda.internal._is-placeholder@0.26.1":
   version "0.26.1"
   resolved "https://node.bit.dev/ramda.ramda.internal._is-placeholder/-/ramda.ramda.internal._is-placeholder-0.26.1.tgz#7b9d90316e7b553cd1138601e498cf0cf2bed6a9"
@@ -1621,23 +1616,6 @@
     "@bit/ramda.ramda.internal._curry1" "0.26.1"
     "@bit/ramda.ramda.internal._has" "0.26.1"
     "@bit/ramda.ramda.internal._is-arguments" "0.26.1"
-
-"@bit/ramda.ramda.merge-deep-with-key@0.26.1":
-  version "0.26.1"
-  resolved "https://node.bit.dev/ramda.ramda.merge-deep-with-key/-/ramda.ramda.merge-deep-with-key-0.26.1.tgz#296916552eb69d2a5a835699df75716c79247eff"
-  integrity sha1-KWkWVS62nSpag1aZ33VxbHkkfv8=
-  dependencies:
-    "@bit/ramda.ramda.internal._curry3" "0.26.1"
-    "@bit/ramda.ramda.internal._is-object" "0.26.1"
-    "@bit/ramda.ramda.merge-with-key" "0.26.1"
-
-"@bit/ramda.ramda.merge-deep-with@^0.26.1":
-  version "0.26.1"
-  resolved "https://node.bit.dev/ramda.ramda.merge-deep-with/-/ramda.ramda.merge-deep-with-0.26.1.tgz#2d55b3da1d1a31973a389a840a72788e5ba77e69"
-  integrity sha1-LVWz2h0aMZc6OJqECnJ4jlunfmk=
-  dependencies:
-    "@bit/ramda.ramda.internal._curry3" "0.26.1"
-    "@bit/ramda.ramda.merge-deep-with-key" "0.26.1"
 
 "@bit/ramda.ramda.merge-with-key@0.26.1":
   version "0.26.1"

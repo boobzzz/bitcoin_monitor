@@ -1,4 +1,4 @@
-import mergeDeep from "@bit/ramda.ramda.merge-deep-with";
+import mergeDeep from "@bit/lodash.lodash.merge";
 
 export default async function fetchJSON(url, options = {}) {
     options = mergeDeep(options, {
